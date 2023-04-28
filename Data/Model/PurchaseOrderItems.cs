@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EshopApi.Data.Model
 {
@@ -17,6 +18,8 @@ namespace EshopApi.Data.Model
         public int Amount { get; set; }
         [Required]
         public double PricePerUnit { get; set; }
+        [NotMapped]
+        public double TotalPrice { get => PricePerUnit * Amount; }
 
     }
 }
