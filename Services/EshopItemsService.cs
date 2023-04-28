@@ -3,6 +3,7 @@ using EshopApi.Data.DTOs;
 using EshopApi.Data.Mappers;
 using EshopApi.Data.Model;
 using EshopApi.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace EshopApi.Services
@@ -35,7 +36,6 @@ namespace EshopApi.Services
                 if (!_context.PurchaseOrderHeaders.Any(x => x.PoNumber.Equals(orderDTO.poid)))
                 {
                     var item = orderDTO.MapToPurchaseOrderItems();
-
                     _context.PurchaseOrderHeaders.Add(item);
                     _context.SaveChanges();
 
@@ -47,8 +47,6 @@ namespace EshopApi.Services
                     response.Failed++;
                 }
             }
-
-            //_context.SaveChanges();
 
             return response;
         }

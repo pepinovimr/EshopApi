@@ -2,7 +2,6 @@
 using EshopApi.Filters;
 using EshopApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EshopApi.Controllers
 {
